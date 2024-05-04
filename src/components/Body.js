@@ -3,8 +3,19 @@ import SideBar from './SideBar'
 import Header from './Header'
 import {Outlet} from "react-router-dom"
 import { useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
+import { toggleMenu } from '../utils/sidebarslice'
 const Body = () => {
+  const dispatch=useDispatch();
   const isMenuOpen = useSelector((store) => store.sidebar.isMenuOpen);
+ 
+  // const handleclick=()=>{
+  //   if(isMenuOpen){
+  //     dispatch(toggleMenu());
+  //   }
+
+  // }
+  // document.addEventListener('click',handleclick());
   return (
     <div>
     <Header/>

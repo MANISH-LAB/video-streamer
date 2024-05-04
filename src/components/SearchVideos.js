@@ -51,23 +51,23 @@ const SearchVideos = () => {
     };
 
     return (
-        <div className='col-span-2'>
+        <div className='md:col-span-2 col-span-4'>
             <div className='w-full flex items-center '>
                 <button className='rounded-l-full bg-gray-100 dark:bg-gray-800 dark:text-white p-2 border dark:border-white sm:p-4 px-2'>Search:</button>
                 <input
-                    className='w-full md:w-2/2 bg-gray-100 dark:bg-gray-800 border dark:border-white hover:border-blue-800 dark:text-white select-none outline-none p-2 sm:p-4'
+                    className='w-screen md:w-2/2 col-span-2 bg-gray-100 dark:bg-gray-800 border dark:border-white hover:border-blue-800 dark:text-white select-none outline-none p-2 sm:p-4'
                     type='text'
                     value={state}
                     onFocus={handleInputFocus}
                     onBlur={handleInputBlur}
                     onChange={(e) => dispatch(addState(e.target.value))}
                 />
-                <button className='rounded-r-full bg-gray-200 p-2 sm:p-4' onClick={clickHandler}>
+                <button className='  rounded-r-full border md:border-white md:rounded-l-none bg-gray-200 p-2 md:p-4  md:ml-0' onClick={clickHandler}>
                     🔍
                 </button>
             </div>
             {showSuggestion && (
-                <div className='fixed col-span-2 w-full ml-20 md:w-2/2 sm:w-[40rem] bg-white rounded-lg'>
+                <div className='relative md:fixed col-span-2 w-full md:ml-20 md:w-2/2 h-screen overflow-y-scroll md:h-auto bg-white rounded-lg'>
                     <Suggestion data={showSuggestions} />
                 </div>
             )}

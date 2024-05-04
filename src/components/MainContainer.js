@@ -7,7 +7,7 @@ const MainContainer = () => {
   
   return (
     <div className='flex-1'>
-        <FilterBtn/>
+        <FilterBtn />
        <Outlet/>
     </div>
   )

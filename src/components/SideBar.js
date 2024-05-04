@@ -1,6 +1,6 @@
 // SideBar.js
 
-import React from 'react';
+import React,{useRef,useEffect} from 'react';
 import { useSelector } from 'react-redux';
 import { GoHome } from 'react-icons/go';
 import { SiYoutubeshorts } from 'react-icons/si';
@@ -20,6 +20,21 @@ const SideBar = () => {
     
     const dispatch=useDispatch();
     const navigate=useNavigate();
+//     const parentRef = useRef(null);
+
+//   useEffect(() => {
+//     const handleClickOutside = (event) => {
+//       if (parentRef.current && !parentRef.current.contains(event.target)) {
+//         dispatch(toggleMenu());
+//       }
+//     };
+
+//     document.addEventListener('click', handleClickOutside);
+
+//     return () => {
+//       document.removeEventListener('click', handleClickOutside);
+//     };
+//   }, [parentRef]);
     const homeClickHandler=()=>{
       dispatch(setStateToshowResultedVideos(false));
       dispatch(removeState());
@@ -34,11 +49,10 @@ const SideBar = () => {
     const youtubeClickHandler = () => {
         dispatch(setStateToshowResultedVideos(false));
         dispatch(removeState());
-        navigate('/');
-    };
-
+        navigate('/');}
     return (
-        <div className='p-8 w-39% border top-0 border-black fixed animate-fadeInLeft text-black bg-white dark:bg-black dark:text-white dark:border-white h-auto' >
+        <div className='p-8 w-39% border top-0 overflow-auto border-black fixed animate-fadeInLeft text-black bg-white dark:bg-black dark:text-white dark:border-white h-screen'
+         >
             <div className='flex items-center mb-2'>
                 <img
                     className='w-8 h-8 cursor-pointer dark:hidden'
@@ -88,7 +102,7 @@ const SideBar = () => {
                 </ul>
             </div>
             <div className='shadow-md border border-t-4 border-gray-700 border-x-0'>
-                <h4 className='font-bold'>Subscriptions</h4>
+                <h4 className='font-bold mt-2'>Subscriptions</h4>
                 <ul className='py-2 cursor-pointer'>
                     <li className='hover:bg-gray-700 hover:font-semibold hover:text-white py-2 pl-4 flex w-40'>
                         {' '}
@@ -113,7 +127,7 @@ const SideBar = () => {
                 </ul>
             </div>
             <div className='shadow-md border border-y-4 border-gray-700 border-x-0'>
-                <h4 className='font-bold'>Watch</h4>
+                <h4 className='font-bold mt-2'>Watch</h4>
                 <ul className='py-2 cursor-pointer'>
                     <li className='hover:bg-gray-700 hover:font-semibold hover:text-white py-2 pl-4 flex w-40'>
                         {' '}
@@ -130,7 +144,7 @@ const SideBar = () => {
                         <SiYoutubegaming className='mt-1 mr-1' />
                         Gaming
                     </li>
-                    <li className='hover:bg-gray-700 hover:font-semibold hover:text-white py-2 pl-4 flex w-40'>
+                    <li className='hover:bg-gray-700  hover:font-semibold hover:text-white py-2 pl-4 flex w-40'>
                         {' '}
                         <MdMovie className='mt-1 mr-1' />
                         Movies
