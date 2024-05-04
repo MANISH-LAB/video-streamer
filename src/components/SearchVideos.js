@@ -67,7 +67,7 @@ const SearchVideos = () => {
                 </button>
             </div>
             {showSuggestion && (
-                <div className='relative md:fixed col-span-2 w-full md:ml-20 md:w-2/2 h-screen overflow-y-scroll md:h-auto bg-white rounded-lg'>
+                <div className=' md:fixed md:col-span-2 md:mr-40 md:w-[40%] md:ml-20 md:w-2/2 h-screen md:overflow-hidden overflow-y-scroll md:h-auto bg-white rounded-lg'>
                     <Suggestion data={showSuggestions} />
                 </div>
             )}

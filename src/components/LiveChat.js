@@ -27,7 +27,8 @@ const LiveChat = () => {
     }, [chatMessages, dispatch]);
 
     return (
-        <div className='relative h-full left-12 top-10 dark:bg-black dark:text-white flex flex-col sm:w-[25%] md:w-auto'>
+        <div className='hidden md:block'>
+        <div className='relative h-full left-12 top-10  dark:bg-black dark:text-white flex flex-col sm:w-[25%] md:w-auto'>
             <span className='px-2 font-bold flex justify-center'>Live Chat</span>
             <div className='ml-2 p-2 border dark:bg-black dark:text-white border-slate-300 h-[300px] sm:h-[408px] w-full bg-slate-100 rounded-lg overflow-y-scroll flex flex-col-reverse'>
                 <ul>
@@ -57,7 +58,7 @@ const LiveChat = () => {
                 </button>
             </form>
         </div>
-    );
+        </div>);
 };
 
 export default LiveChat;
