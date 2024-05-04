@@ -25,15 +25,15 @@ const FilterBtn = () => {
     };
 
     return (
-        <div>
-            <ul className='flex flex-wrap px-2'>
+        <div className='flex justify-center'>
+            <ul className='flex flex-wrap px-2 dark:bg-black'>
                 {btns.map((e) => {
                     const isActive = activeButton === e;
                     return (
                         <li
                             key={e}
-                            className={`rounded-lg p-2 m-2 cursor-pointer ${
-                                isActive ? 'bg-slate-600 text-white' : 'bg-gray-300 hover:bg-slate-600 hover:text-white'
+                            className={`rounded-lg p-2 m-2 cursor-pointer dark:bg-gray-900 dark:text-white ${
+                                isActive ? 'bg-gray-900 dark:bg-blue-300 text-white' : 'bg-gray-300 hover:bg-slate-600 hover:text-white'
                             }`}
                             onClick={clickHandler}
                         >

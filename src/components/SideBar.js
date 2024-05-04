@@ -14,8 +14,10 @@ import {useDispatch } from "react-redux";
 import {useNavigate} from "react-router-dom";
 import { setStateToshowResultedVideos } from '../utils/videosByKeywordSlice';
 import { removeState } from '../utils/searchQuerySlice';
+import { toggleMenu } from '../utils/sidebarslice';
 const SideBar = () => {
     const isMenuOpen = useSelector((store) => store.sidebar.isMenuOpen);
+    
     const dispatch=useDispatch();
     const navigate=useNavigate();
     const homeClickHandler=()=>{
@@ -25,9 +27,40 @@ const SideBar = () => {
     }
     if (!isMenuOpen) return null;
 
+    const clickMenu = () => {
+        dispatch(toggleMenu());
+    };
+
+    const youtubeClickHandler = () => {
+        dispatch(setStateToshowResultedVideos(false));
+        dispatch(removeState());
+        navigate('/');
+    };
+
     return (
-        <div className='p-8 w-39% border border-black text-black bg-white h-[80%]'>
+        <div className='p-8 w-39% border top-0 border-black fixed animate-fadeInLeft text-black bg-white dark:bg-black dark:text-white dark:border-white h-auto' >
+            <div className='flex items-center mb-2'>
+                <img
+                    className='w-8 h-8 cursor-pointer dark:hidden'
+                    onClick={clickMenu}
+                    alt='sidebar icon'
+                    src='https://cdn.icon-icons.com/icons2/2596/PNG/512/hamburger_button_menu_icon_155296.png'
+                />
+                <img
+                    className='w-8 h-8 cursor-pointer hidden dark:block'
+                    onClick={clickMenu}
+                    alt='sidebar icon'
+                    src='../whiteburger.png'
+                />
+                <img
+                    alt='youtube icon'
+                    className='w-24 h-16 ml-2 cursor-pointer'
+                    onClick={youtubeClickHandler}
+                    src='../appicon.png'
+                />
+            </div>
             <div className='shadow-md border border-t-4 border-gray-700 border-x-0 '>
+
                 <ul className='py-2 cursor-pointer'>
                   
                         

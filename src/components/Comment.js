@@ -18,7 +18,7 @@ const Comment = ({id}) => {
     
     if(comments.lenght===0) return null;
   return (
-    <div className='p-3 -mt-6'>
+    <div className='p-3 -mt-6 w-auto '>
         <h4>Comment box</h4>
      {comments.items && comments.items.map((e)=><CommentCard  key = {e.id} info={e.snippet.topLevelComment.snippet}/>)}
     </div>

@@ -24,7 +24,7 @@ const VideoContainer = () => {
 
     if (videos.length !== 0) {
         return (
-            <div className='flex flex-wrap'>
+            <div className='flex flex-wrap dark:bg-black dark:text-white justify-center'>
                 {store.stateToshowResultedVideos
                     ? store.data.map((e) => (
                           <Link to={'/watch?v=' + e.id.videoId} key={e.id.videoId}>

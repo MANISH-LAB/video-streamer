@@ -1,41 +1,30 @@
-import React, {useEffect} from 'react'
-import {useSelector,useDispatch} from "react-redux";
-import { addState, setSuggestion } from '../utils/searchQuerySlice';
-const Suggestion = ({data}) => {
-  console.log(data)
-  
-  const dispatch=useDispatch();
-  const clickHandler=(e)=>{
-    const content =e.target.textContent;
+import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { addState } from '../utils/searchQuerySlice';
 
-        dispatch(addState(content))
-      
-  }
-  
-//   useEffect(() => {
-//     const handleClickOutside = (event) => {
-//         if (!event.target.closest('.suggestion-container')) {
-//             // Clicked outside the main div
-//             dispatch(setSuggestion(false));
-//         }
-//     };
+const Suggestion = ({ data }) => {
+    const dispatch = useDispatch();
 
-//     document.addEventListener('click', handleClickOutside);
+    const clickHandler = (e) => {
+        const content = e.target.textContent;
+        dispatch(addState(content));
+    };
 
-//     return () => {
-//         document.removeEventListener('click', handleClickOutside);
-//     };
-// }, [dispatch]);
-  return (
-    <div className='m-2 p-2 suggestion-container'>
-        {data.map((e,i)=>
-        
-        { return  <p className='hover:bg-gray-700 px-2 cursor-pointer hover:text-white p-2' onClick={clickHandler} >{e}</p>
-})
-        
-      }
-    </div>
-  )
-}
+    return (
+        <div className='m-2 p-2 col-span-2 suggestion-container dark:bg-gray-800 dark:text-white'>
+            {data.map((e, i) => {
+                return (
+                    <p
+                        key={i}
+                        className='hover:bg-gray-700 px-2 cursor-pointer hover:text-white p-2 sm:p-4'
+                        onClick={clickHandler}
+                    >
+                        {e}
+                    </p>
+                );
+            })}
+        </div>
+    );
+};
 
-export default Suggestion
+export default Suggestion;
